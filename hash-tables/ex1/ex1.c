@@ -26,7 +26,7 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 
     if( second_index > -1){
       Answer *answer = malloc(sizeof(Answer));
-      if(weights[i] >= second_value){
+      if(first_index > second_index){
         answer->index_1 = first_index;
         answer->index_2 = second_index;
       }
@@ -34,6 +34,7 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
         answer->index_1 = second_index;
         answer->index_2 = first_index;
       }
+
 
       
       destroy_hash_table(ht);
