@@ -80,5 +80,5 @@ A     B     C      carry   sum
 1     1     0        1      0
 1     1     1        1      1
 ```
-* SUM = (A  ⊕ B ) ⊕ C
-* CARRY = 
+* SUM = ((A  ⊕ B ) ⊕ C) || (A ∧ B ∧ C)
+* CARRY = (A ∧ B) || (A ∧ C) || (C ∧ B) 
