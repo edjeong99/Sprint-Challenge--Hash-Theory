@@ -18,26 +18,31 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
   // check if there is an element that match limit when added
   for (int i = 0; i < length-1; i++ ){
     //get value for each element
-    int first_index = hash_table_retrieve(ht, weights[i]);
+    int first_index = i;
     int second_value = limit - weights[i];
-  // printf( " Second Value = %d\n", second_value);
     int second_index = hash_table_retrieve(ht, second_value);
+ 
+    // printf( " first value = %d  Second Value = %d 1st_index = %d 2nd_index = %d\n", weights[i],second_value, first_index, second_index);
+
     if( second_index > -1){
       Answer *answer = malloc(sizeof(Answer));
       if(weights[i] >= second_value){
         answer->index_1 = first_index;
         answer->index_2 = second_index;
       }
-      else{
+      else {
         answer->index_1 = second_index;
         answer->index_2 = first_index;
       }
+
+      
+      destroy_hash_table(ht);
       return answer;
     }
  
- 
   }
-
+  
+destroy_hash_table(ht);
   return NULL;
 }
 
